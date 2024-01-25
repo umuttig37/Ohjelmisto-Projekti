@@ -39,23 +39,6 @@ class Tapahtuma implements Comparable<Tapahtuma> {
     }
 }
 
-class Tapahtumalista {
-    private PriorityQueue<Tapahtuma> tapahtumat = new PriorityQueue<>();
-
-    public void lisaaTapahtuma(Tapahtuma tapahtuma) {
-        tapahtumat.add(tapahtuma);
-    }
-
-    public Tapahtuma haeSeuraavaTapahtuma() {
-        return tapahtumat.poll();
-    }
-
-    public void tulostaTapahtumat() {
-        while (!tapahtumat.isEmpty()) {
-            System.out.println(haeSeuraavaTapahtuma());
-        }
-    }
-}
 
 public class PaaOhjelma {
     public static void main(String[] args) {
