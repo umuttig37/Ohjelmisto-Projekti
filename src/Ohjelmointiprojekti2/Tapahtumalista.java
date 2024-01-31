@@ -1,5 +1,4 @@
 package Ohjelmointiprojekti2;
-
 import java.util.PriorityQueue;
 
 class Tapahtumalista {

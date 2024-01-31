@@ -1,6 +1,6 @@
 package Ohjelmointiprojekti1;
 
-public class Testiohjelma {
+public class Testohjelma {
     public static void main(String[] args) {
         //osa1
         Asiakas asiakas1 = new Asiakas();
