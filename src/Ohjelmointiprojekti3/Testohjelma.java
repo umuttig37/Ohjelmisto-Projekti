@@ -2,32 +2,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Testiohjelma {
+public class Testohjelma {
     public static void main(String[] args) {
         Saapumisprosessi saapumisprosessi = new Saapumisprosessi("Saapuminen");
         Kello kello = Kello.getInstance();
         Tapahtumalists tapahtumalista = new Tapahtumalists();
 
-        // Generoidaan 10 saapumistapahtumaa
         for (int i = 0; i < 10; i++) {
             saapumisprosessi.lisaaTapahtuma(tapahtumalista, kello);
         }
 
-        // Tulostetaan viimeisin tapahtuma-aika
         System.out.println("Viimeisin tapahtuma-aika: " + kello.haeAika());
 
-        // Käsitellään kaikki tapahtumat peräkkäin
         while (!tapahtumalista.onTyhja()) {
             Tapahtumat tapahtuma = tapahtumalista.poistaTapahtuma();
             Palvelupiste.kasitteleAsiakas(tapahtuma, kello);
         }
 
-        // Siirretään kelloa 5 aikayksikköä eteenpäin
         for (int i = 0; i < 5; i++) {
-            kello.asetaAika(kello.haeAika() + 1); // Oletetaan aikayksikköjen olevan sekunteja
+            kello.asetaAika(kello.haeAika() + 1);
         }
 
-        // Tyhjennetään palvelupiste asiakas kerrallaan ja tulostetaan palveluaika
         while (!Palvelupiste.onTyhja()) {
             Asiakas asiakas = Palvelupiste.palveleAsiakas();
             long palveluaika = kello.haeAika() - asiakas.saapumisAika();
@@ -94,7 +89,7 @@ class Asiakas {
 }
 
 class Tapahtumat {
-    // Mahdollisia ominaisuuksia
+
 }
 
 class Saapumisprosessi {
@@ -113,7 +108,7 @@ class Saapumisprosessi {
     }
 
     private double generoiSaapumisvali() {
-        return -Math.log(1 - satunnaislukugeneraattori.nextDouble()); // Exponential distribution
+        return -Math.log(1 - satunnaislukugeneraattori.nextDouble());
     }
 }
 
